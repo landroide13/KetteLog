@@ -1,0 +1,7 @@
+{
+  "name": "Kette-log-v1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
