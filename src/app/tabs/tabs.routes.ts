@@ -8,13 +8,29 @@ export const routes: Routes = [
     children: [
       {
         path: 'tab1',
-        loadComponent: () =>
-          import('../tab1/tab1.page').then((m) => m.Tab1Page),
+        children:[
+          {
+            path: '',
+            loadComponent: () => import('../tab1/tab1.page').then((m) => m.Tab1Page),
+          },
+          {
+            path: 'session',
+            loadComponent: () => import('../pages/session/session.page').then((m) => m.SessionPage),
+          }
+        ]
       },
       {
         path: 'tab2',
-        loadComponent: () =>
-          import('../tab2/tab2.page').then((m) => m.Tab2Page),
+        children:[
+          {
+            path:'',
+            loadComponent: () => import('../tab2/tab2.page').then((m) => m.Tab2Page),
+          },
+          {
+            path: ':sessionId',
+            loadComponent: () => import('../pages/session-details/session-details.page').then((m) => m.SessionDetailsPage),
+          }
+        ]
       },
       {
         path: 'tab3',

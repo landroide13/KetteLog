@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border" [ngClass]="{'android-header': isAndroid()}">
+  <ion-toolbar>
+    <ion-title>{{ exerciseName }} - {{ date | date }}</ion-title>
+     <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item>
+    <ion-label position="floating">Reps for this set</ion-label>
+    <ion-input
+      name="reps"
+      type="number"
+      [(ngModel)]="repsInput" />
+    </ion-item>
+
+  <ion-button class="col-md-8 offset-md-2" expand="block" color="secondary" (click)="addSet()">
+    Add Set
+  </ion-button>
+
+  <ion-list>
+    <ion-list-header>Sets</ion-list-header>
+    <ion-item *ngFor="let reps of repsList; let i = index">
+      Set {{ i+1 }}: {{ reps }} reps
+    </ion-item>
+  </ion-list>
+
+  <ion-col size="12">
+    <ion-button color="secondary" expand="block" (click)="register()">Finish Session</ion-button> 
+  </ion-col>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="success">
+    <ion-title>Total: {{ totalReps }} reps</ion-title>
+  </ion-toolbar>
+</ion-footer>
+
