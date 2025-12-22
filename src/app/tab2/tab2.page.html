@@ -6,8 +6,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  
+<ion-content [fullscreen]="true"> 
 
+  @if(sessions.length > 0){
+    <ion-list>
+      @for(s of sessions; track s){
+        <ion-item>
+          <ion-label>
+            <h2>{{ s.name }}</h2>
+            <p>Date: {{ s.date }}</p>
+            <p>Total: {{ s.totalReps }} reps</p>
+          </ion-label>
+        </ion-item>  
+      }
+    </ion-list>
+  }@else {
+    <ion-label class="ion-text-center">
+      <p>No sessions saved yet.</p>
+    </ion-label>
+  }
+    
+    
+  
+  
 
 </ion-content>

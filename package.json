@@ -9,7 +9,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "generate-icons-android": "npx capacitor-assets generate --android",
+    "generate-icons-ios": "npx capacitor-assets generate --ios",
+    "generate-icons-pwa": "npx capacitor-assets generate --pwa",
+    "copysqlwasm":"copyfiles -u 3 node_modules/sql.js/dist/sql-wasm.wasm copy src/assets"
   },
   "private": true,
   "dependencies": {
@@ -21,11 +25,13 @@
     "@angular/platform-browser": "^20.0.0",
     "@angular/platform-browser-dynamic": "^20.0.0",
     "@angular/router": "^20.0.0",
+    "@capacitor-community/sqlite": "^7.0.2",
     "@capacitor/android": "8.0.0",
     "@capacitor/app": "8.0.0",
     "@capacitor/core": "8.0.0",
     "@capacitor/haptics": "8.0.0",
     "@capacitor/keyboard": "8.0.0",
+    "@capacitor/preferences": "^8.0.0",
     "@capacitor/status-bar": "8.0.0",
     "@ionic/angular": "^8.0.0",
     "ionicons": "^7.0.0",
