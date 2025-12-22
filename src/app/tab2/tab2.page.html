@@ -1,5 +1,5 @@
 <ion-header [translucent]="true"  class="ion-no-border">
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-title>
       Sessions List
     </ion-title>
@@ -9,21 +9,23 @@
 <ion-content [fullscreen]="true"> 
 
   @if(sessions.length > 0){
-    <ion-list>
+    <ion-list lines="none">
       @for(s of sessions; track s){
-        <ion-item>
+        <ion-item button detail="true" (click)="openSession(s.id)" class="session-item">
+          <ion-icon name="fitness" slot="start" class="session-icon"></ion-icon>
           <ion-label>
-            <h2>{{ s.name }}</h2>
-            <p>Date: {{ s.date }}</p>
-            <p>Total: {{ s.totalReps }} reps</p>
+            <h2>{{ s.name }}</h2> 
+            <p>Date: {{ s.date | date:'medium'  }}</p>
           </ion-label>
+          <ion-badge color="success">{{ s.totalReps }} reps</ion-badge>
         </ion-item>  
       }
     </ion-list>
   }@else {
-    <ion-label class="ion-text-center">
-      <p>No sessions saved yet.</p>
-    </ion-label>
+    <div class="empty-container">
+      <ion-icon name="barbell" class="empty-icon"></ion-icon>
+      <p>No sessions logged yet.</p>
+    </div>
   }
     
     

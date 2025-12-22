@@ -1,0 +1,30 @@
+.session-item {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  --background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 8px;
+}
+
+.session-icon {
+  font-size: 28px;
+  color: var(--ion-color-primary);
+}
+
+.empty-container {
+  text-align: center;
+  margin-top: 40%;
+  color: #888;
+}
+
+.empty-icon {
+  font-size: 58px;
+  margin-bottom: 12px;
+  color: var(--ion-color-medium);
+}
+
+
+
+
+
+

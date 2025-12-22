@@ -23,12 +23,13 @@ export class Tab1Page {
   ionViwWillEnter(){}
 
   start(){
-    this.router.navigate(['/session'], {
+    this.router.navigate(['/tabs/tab1/session'], {
       state: {
         name: this.exerciseName,
         date: this.date
       }
     });
+    this.exerciseName = '';
   }
 
   isAndroid(){

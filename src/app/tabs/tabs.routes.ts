@@ -27,7 +27,7 @@ export const routes: Routes = [
             loadComponent: () => import('../tab2/tab2.page').then((m) => m.Tab2Page),
           },
           {
-            path: ':sessionId',
+            path: 'session-details/:id',
             loadComponent: () => import('../pages/session-details/session-details.page').then((m) => m.SessionDetailsPage),
           }
         ]

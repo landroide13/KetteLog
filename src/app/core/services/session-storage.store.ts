@@ -40,7 +40,7 @@ export class SessionStorageStore {
 
       await this.db.execute(this.sql);
 
-      this.toast.showToast(`DB created`, 'bottom');
+      //this.toast.showToast(`DB created`, 'bottom');
 
     }catch(err){
       this.toast.showToast(`DB created: ${err}`, 'bottom');
@@ -93,6 +93,26 @@ export class SessionStorageStore {
     if (!this.db) {
       await this.init();
     }
+  }
+
+  async getDB() {
+    await this.ensureDB();
+    return this.db;
+  }
+
+  async getWeeklySummary() {
+    const db = await this.getDB();
+
+    const query = `
+      SELECT date,
+            totalReps,
+            strftime('%W', date) AS week
+      FROM sessions
+      ORDER BY date ASC;
+    `;
+
+    const result = await db.query(query);
+    return result.values || [];
   }
 
 }
