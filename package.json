@@ -13,7 +13,7 @@
     "generate-icons-android": "npx capacitor-assets generate --android",
     "generate-icons-ios": "npx capacitor-assets generate --ios",
     "generate-icons-pwa": "npx capacitor-assets generate --pwa",
-    "copysqlwasm":"copyfiles -u 3 node_modules/sql.js/dist/sql-wasm.wasm copy src/assets"
+    "copysqlwasm": "copyfiles -u 3 node_modules/sql.js/dist/sql-wasm.wasm copy src/assets"
   },
   "private": true,
   "dependencies": {
@@ -34,7 +34,9 @@
     "@capacitor/preferences": "^8.0.0",
     "@capacitor/status-bar": "8.0.0",
     "@ionic/angular": "^8.0.0",
+    "echarts": "^6.0.0",
     "ionicons": "^7.0.0",
+    "ngx-echarts": "^20.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

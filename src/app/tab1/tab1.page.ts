@@ -20,8 +20,6 @@ export class Tab1Page {
 
   constructor(private router: Router, private platform: Platform) {}
 
-  ionViwWillEnter(){}
-
   start(){
     this.router.navigate(['/tabs/tab1/session'], {
       state: {

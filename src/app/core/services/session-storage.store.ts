@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CapacitorSQLite, capSQLiteResult, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
+import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
 import { ToastService } from './toast-service';
 
 @Injectable({
@@ -39,8 +39,6 @@ export class SessionStorageStore {
       await this.db.open();
 
       await this.db.execute(this.sql);
-
-      //this.toast.showToast(`DB created`, 'bottom');
 
     }catch(err){
       this.toast.showToast(`DB created: ${err}`, 'bottom');
@@ -104,15 +102,46 @@ export class SessionStorageStore {
     const db = await this.getDB();
 
     const query = `
-      SELECT date,
-            totalReps,
-            strftime('%W', date) AS week
+      SELECT 
+        date,
+        totalReps,
+        strftime('%W', date) AS week
       FROM sessions
       ORDER BY date ASC;
     `;
 
     const result = await db.query(query);
     return result.values || [];
+  }
+
+  async getDailyProgress() {
+    const db = await this.getDB();
+
+    const query = `
+      SELECT 
+        date,
+        COUNT(*) AS sessionCount,
+        SUM(totalReps) AS reps
+      FROM sessions
+      GROUP BY date
+      ORDER BY date ASC;
+    `;
+
+    const result = await db.query(query);
+    return result.values ?? [];
+  }
+
+  async getRepsOverTime() {
+    const db = await this.getDB();
+
+    const query = `
+      SELECT date, totalReps
+      FROM sessions
+      ORDER BY date ASC;
+    `;
+
+    const result = await db.query(query);
+    return result.values ?? [];
   }
 
 }

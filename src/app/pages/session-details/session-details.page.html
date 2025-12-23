@@ -18,7 +18,7 @@
 
     <ion-list>
       <ion-list-header>Sets</ion-list-header>
-
+ 
       @for (set of sets; track $index) {
         <ion-item>
           <ion-label>Set {{ $index + 1 }}</ion-label>
@@ -26,6 +26,8 @@
         </ion-item>
       }
     </ion-list>
+
+    <echarts [initOpts]="initOpts" [options]="chartOptionsDay"></echarts>
 
     <ion-button expand="block" color="danger" (click)="confirmDelete()">
       <ion-icon name="trash-outline" slot="start"></ion-icon>

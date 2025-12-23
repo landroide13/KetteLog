@@ -6,14 +6,35 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SessionStorageStore } from 'src/app/core/services/session-storage.store';
 import { AlertService } from 'src/app/core/services/alert-service';
 
+import { NgxEchartsDirective, provideEchartsCore } from 'ngx-echarts';
+import type { EChartsCoreOption } from 'echarts/core';
+import * as echarts from 'echarts/core';
+echarts.use([BarChart, GridComponent, CanvasRenderer]);
+import { BarChart } from 'echarts/charts';
+import { GridComponent } from 'echarts/components';
+import { CanvasRenderer } from 'echarts/renderers';
+
 @Component({
   selector: 'app-session-details',
   templateUrl: './session-details.page.html',
   styleUrls: ['./session-details.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, IonBadge, IonLabel, IonItem, IonListHeader, IonList, IonBackButton, IonButtons, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonIcon, IonButton, IonBadge, IonLabel, IonItem, 
+    IonListHeader, IonList, IonBackButton, IonButtons, 
+    IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, 
+    FormsModule, NgxEchartsDirective],
+  providers: [
+    provideEchartsCore({ echarts }),
+  ]
 })
 export class SessionDetailsPage implements OnInit {
+  initOpts = {
+    renderer: 'svg',
+    width: 300,
+    height: 300,
+  };
+
+  chartOptionsDay: EChartsCoreOption = {};
 
   session: any = null;
   sets: any[] = [];
@@ -26,7 +47,7 @@ export class SessionDetailsPage implements OnInit {
   ) {}
 
   async ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = Number(this.route.snapshot.paramMap.get('id')); 
 
     const db = await this.sqlite.getDB();
 
@@ -41,6 +62,8 @@ export class SessionDetailsPage implements OnInit {
       [id]
     );
     this.sets = setsResult.values ?? [];
+
+    this.buildSetGraph();
   }
 
   confirmDelete(){
@@ -67,6 +90,62 @@ export class SessionDetailsPage implements OnInit {
     console.log("Session deleted");
 
     this.router.navigate(['/tabs/tab2']);
+  }
+
+  buildSetGraph() {
+
+    if (!this.sets.length) return;
+
+    const labels = this.sets.map((_, i) => `Set ${i + 1}`);
+    const reps = this.sets.map(s => Number(s.reps));
+
+    this.chartOptionsDay = {
+      color: ['#3398DB'],
+      backgroundColor: '#f8f9fa',
+      title: {
+        text: 'Reps vs Date',
+        left: 'center',
+        textStyle: {
+          fontSize: 16,
+          fontWeight: 'bold'
+        }
+      },
+
+      tooltip: {
+        trigger: 'axis',
+        backgroundColor: '#333',
+        textStyle: { color: '#fff' }
+      },
+
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true,
+      },
+      xAxis: [
+        {
+          type: 'category',
+          data: labels,
+          axisTick: {
+            alignWithLabel: true,
+          },
+        },
+      ],
+      yAxis: [
+        {
+          type: 'value',
+        },
+      ],
+      series: [
+        {
+          name: 'Reps',
+          type: 'bar',
+          barWidth: '60%',
+          data: reps,
+        },
+      ],
+    };
   }
 
 }
