@@ -40,6 +40,15 @@
     margin-top: 20px;
 }
 
+ion-app, ion-content {
+  --background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ion-color-secondary) 21%, white),
+    color-mix(in srgb, var(--ion-color-secondary) 9%, white)
+  ) !important;
+}
 
-
-
+ion-toolbar {
+  --background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+}

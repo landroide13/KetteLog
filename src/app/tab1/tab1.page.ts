@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonCol, IonRow, IonInput, IonButton, IonDatetime, IonDatetimeButton, IonModal, IonLabel, IonItem } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonCol, IonRow, IonInput, IonButton, IonDatetime, IonDatetimeButton, IonModal, IonLabel, IonItem, IonIcon } from '@ionic/angular/standalone';
 import { Platform } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
-  imports: [IonItem, IonModal, IonDatetimeButton, IonDatetime, 
+  imports: [IonIcon, IonItem, IonModal, IonDatetimeButton, IonDatetime, 
     IonButton, IonInput, IonRow, IonCol,IonLabel,
     IonHeader, IonToolbar, IonTitle, IonContent, CommonModule,FormsModule],
 })

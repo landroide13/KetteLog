@@ -1,0 +1,57 @@
+
+/* ----- SESSION INPUT CARD ----- */
+.session-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.input-item {
+  border-radius: 12px;
+  margin-bottom: 16px;
+  --background: #fafafa;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.input-icon {
+  font-size: 24px;
+  color: var(--ion-color-secondary);
+}
+
+.add-btn {
+  margin-top: 12px;
+  border-radius: 12px;
+}
+
+
+
+/* ----- SET LIST ----- */
+.set-list ion-item {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  --background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+ion-badge {
+  font-size: 1rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* ----- SAVE BUTTON ----- */
+.save-btn {
+  margin-top: 20px;
+  border-radius: 14px;
+  height: 50px;
+  font-size: 1.1rem;
+}
+
+
+
+
+
+

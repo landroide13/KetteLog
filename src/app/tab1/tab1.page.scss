@@ -1,0 +1,48 @@
+ion-content {
+  --padding-top: 40px;     // Adds extra space at top
+  --padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; // still scrolls normally
+}
+
+
+.form-card {
+  margin-top: 60px;        // Move card downward
+  background: #ffffff;
+  padding: 20px 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+.input-item {
+  --background: transparent;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.06);
+  padding-left: 4px;
+}
+
+.input-icon {
+  font-size: 24px;
+  color: var(--ion-color-secondary);
+}
+
+.start-btn {
+  margin-top: 20px;
+  border-radius: 14px;
+  height: 52px;
+  font-size: 1.1rem;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+}
+
+
+
+
+
+
+
+
+
+
+

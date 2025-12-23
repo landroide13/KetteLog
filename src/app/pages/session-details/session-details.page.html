@@ -13,10 +13,10 @@
     <div class="session-info">
       <h2>{{ session.name }}</h2>
       <p>Date: {{ session.date | date:'medium' }}</p>
-      <p>Total Reps: <strong>{{ session.totalReps }}</strong></p>
+      <strong>Total Reps: {{ session.totalReps }}</strong>
     </div>
 
-    <ion-list>
+    <ion-list class="graph-card">
       <ion-list-header>Sets</ion-list-header>
  
       @for (set of sets; track $index) {
@@ -27,12 +27,15 @@
       }
     </ion-list>
 
-    <echarts [initOpts]="initOpts" [options]="chartOptionsDay"></echarts>
-
+    <div class="graph-card">
+      <echarts [initOpts]="initOpts" [options]="chartOptionsDay"></echarts>
+    </div>
+    
     <ion-button expand="block" color="danger" (click)="confirmDelete()">
-      <ion-icon name="trash-outline" slot="start"></ion-icon>
+      <ion-icon name="trash" slot="start"></ion-icon>
       Delete Session
     </ion-button>
+   
   }
 
 </ion-content>

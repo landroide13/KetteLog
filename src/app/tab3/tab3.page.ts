@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonLabel } from '@ionic/angular/standalone';
 
 import { NgxEchartsDirective, provideEchartsCore } from 'ngx-echarts';
 import type { EChartsCoreOption } from 'echarts/core';
@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, 
+  imports: [IonLabel, IonHeader, IonToolbar, IonTitle, 
     IonContent, NgxEchartsDirective, CommonModule],
   providers: [
     provideEchartsCore({ echarts }),

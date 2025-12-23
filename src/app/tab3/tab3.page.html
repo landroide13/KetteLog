@@ -8,8 +8,13 @@
 
 <ion-content class="ion-padding" [fullscreen]="true">
 
-  <echarts [initOpts]="initOpts" [options]="chartOptionsWeek"></echarts>
-
-  <echarts [initOpts]="initOpts" [options]="chartOptionsDay"></echarts>
+  <div class="graph-card">
+    <echarts [initOpts]="initOpts" [options]="chartOptionsWeek" ></echarts>
+  </div>
  
+  <div class="graph-card">
+    <echarts [initOpts]="initOpts" [options]="chartOptionsDay" ></echarts>
+  </div>
+  
+  
 </ion-content>

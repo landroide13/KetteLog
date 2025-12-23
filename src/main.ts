@@ -5,7 +5,7 @@ import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 
 import { addIcons } from 'ionicons';
-import { add, barbellOutline, fitnessOutline, homeOutline, listOutline, scanOutline, statsChartOutline, trashOutline } from 'ionicons/icons';
+import { add, barbellOutline, calendarOutline, fitnessOutline, homeOutline, listOutline, scanOutline, statsChartOutline, trashOutline } from 'ionicons/icons';
 
 addIcons({
   'dumb': barbellOutline,
@@ -14,7 +14,8 @@ addIcons({
   'stats': statsChartOutline,
   'trash': trashOutline,
   'barbell': barbellOutline,
-  'fitness': fitnessOutline
+  'fitness': fitnessOutline,
+  'calendar': calendarOutline
 });
 
 bootstrapApplication(AppComponent, {
